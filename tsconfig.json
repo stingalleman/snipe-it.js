@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "alwaysStrict": true,
+      "declaration": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "strict": true,
+      "incremental": true,
+      "lib": ["esnext"],
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noUnusedLocals": true,
+      "outDir": "./dist",
+      "pretty": true,
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "strictFunctionTypes": true,
+      "strictBindCallApply": true,
+      "target": "esnext",
+      "types": ["node"],
+      "rootDir": "src"
+  },
+  "exclude": ["node_modules", "test", "example"],
+  "include": ["src/**/*"],
+  "typedocOptions": {
+      "out": "./docs/",
+      "readme": "./README.md",
+      "name": "zermelo.ts",
+      "exclude": ["**/node_modules/**"],
+      "mode": "file",
+  }
+}
