@@ -1,0 +1,45 @@
+{
+  "name": "snipe-it.ts",
+  "version": "1.0.0",
+  "description": "snipe-it.ts",
+  "main": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "yarn compile",
+    "lint": "eslint --fix --ext ts src",
+    "test": "mocha",
+    "compile": "tsc -p .",
+    "watch": "tsc -p . -w",
+    "docs": "typedoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stingalleman/snipe-it.ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stingalleman/snipe-it.ts/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "@types/node-fetch": "^2.5.5",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.1",
+    "typedoc": "^0.17.0",
+    "typescript": "^3.8.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "homepage": "https://github.com/stingalleman/snipe-it.ts#readme"
+}
