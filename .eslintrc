@@ -1,6 +1,6 @@
 {
 	"root": true,
-	"plugins": ["prettier"],
+	"plugins": ["@typescript-eslint"],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended"
@@ -10,9 +10,13 @@
 		"es6": true
 	},
 	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaVersion": 2019
-	},
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
 	"rules": {
 		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
 		"comma-dangle": ["error", "only-multiline"],
@@ -54,14 +58,14 @@
 		"space-unary-ops": "error",
 		"spaced-comment": "error",
 		"yoda": "error",
-		"prettier/prettier": "error",
 
 		"@typescript-eslint/semi": [
 			2,
 			"always"
 		],
+		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": "off",
-		"@typescript-eslint/camelcase": "warn",
+		"@typescript-eslint/camelcase": "off",
 		"@typescript-eslint/member-delimiter-style": [
 			2,
 			{
@@ -85,6 +89,7 @@
 					}
 				}
 			}
-		]
+		],
+		"no-mixed-spaces-and-tabs": "off"
 	}
 }
