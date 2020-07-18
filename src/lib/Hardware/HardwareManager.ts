@@ -1,7 +1,7 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, IHardware } from "../Interfaces";
+import { Response, IHardware, IHardwareID } from "../Interfaces";
 import { Hardware } from "./Hardware";
 
 // Error:
@@ -35,8 +35,8 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (await res.status !== 200) throw(JSON.stringify(result, null, " "));
 		if (await result.status == "error") throw(JSON.stringify(result, null, " "));
+		if (res.status !== 200) throw(JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
@@ -58,6 +58,7 @@ export class HardwareManager extends Manager {
 		});
 		const result = await res.json();
 		if (await result.status == "error") throw(JSON.stringify(result, null, " "));
+		if (res.status !== 200) throw(JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
@@ -75,7 +76,7 @@ export class HardwareManager extends Manager {
 			note: note,
 			location_id: location_id
 		};
-		const Body = JSON.stringify(data);
+		const JSONdata = JSON.stringify(data);
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}/checkin`), {
 			method: "POST",
 			headers: {
@@ -83,7 +84,7 @@ export class HardwareManager extends Manager {
 				"Accept": "application/json",
 				"Content-Type": "Content-Type"
 			},
-			body: Body
+			body: JSONdata
 		});
 		const result = await res.json();
 		if (await result.status == "error") {
