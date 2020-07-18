@@ -13,8 +13,8 @@ export class HardwareManager extends Manager {
  * Return list of assets
  * @param options options - Options to pass to the API
  */
-	async get(options?: {
-		limit?: number,
+	async get(options: {
+		limit: number,
 		offset?: number,
 		search?: string,
 		order_number?: string,
@@ -26,7 +26,6 @@ export class HardwareManager extends Manager {
 		status?: string,
 		status_id?: string
 	}) {
-		if (options.limit == null) options.limit = 50;
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware?limit=${options.limit}`), {
 			method: "GET",
 			headers: {
@@ -36,6 +35,7 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
+		if (await res.status !== 200) throw(JSON.stringify(result, null, " "));
 		if (await result.status == "error") throw(JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
