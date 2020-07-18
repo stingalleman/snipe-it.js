@@ -14,7 +14,7 @@ export class HardwareManager extends Manager {
  * @param options options - Options to pass to the API
  */
 	async get(options?: {
-		limit: number,
+		limit?: number,
 		offset?: number,
 		search?: string,
 		order_number?: string,
@@ -36,7 +36,7 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (await result.status == "error") throw(`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
+		if (await result.status == "error") throw(JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
@@ -57,7 +57,7 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (await result.status == "error") throw(`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
+		if (await result.status == "error") throw(JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
