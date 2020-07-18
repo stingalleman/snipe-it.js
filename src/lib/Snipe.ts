@@ -8,15 +8,11 @@ export class Snipe {
   	this.hardware = new HardwareManager(snipeURL, accessToken);
   }
 
-  public getSnipe() {
-  	return this.snipeURL;
+  public getData() {
+  	return `URL: ${this.snipeURL}\nToken: ${this.accessToken}`;
   }
 
-  public getApiToken() {
-  	return this.accessToken;
-  }
-
-  public static getAPI(snipeURL: string, accessToken: string) {
+  public static init(snipeURL: string, accessToken: string) {
   	return new Snipe(snipeURL, accessToken);
   }
 }
