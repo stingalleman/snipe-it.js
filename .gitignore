@@ -90,3 +90,5 @@ typings/
 dist
 test/config.json
 stuff
+docs/
+.DS_store

@@ -1,7 +1,7 @@
 export interface Response<A> {
 	total?: number,
 	messages: any,
-	rows: A[]
+	rows: []
 }
 
 export interface IHardware {

@@ -8,7 +8,7 @@ export class Snipe {
   	this.hardware = new HardwareManager(snipeURL, accessToken);
   }
 
-  public getData() {
+  public getLoginData() {
   	return `URL: ${this.snipeURL}\nToken: ${this.accessToken}`;
   }
 
