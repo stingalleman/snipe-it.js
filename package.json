@@ -1,6 +1,6 @@
 {
   "name": "snipe-it.ts",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "snipe-it.ts",
   "main": "dist/index",
   "files": [
