@@ -1,7 +1,7 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, IHardware, IHardwareID } from "../Interfaces";
+import { Response, IHardware } from "../Interfaces";
 import { Hardware } from "./Hardware";
 
 // Error:
