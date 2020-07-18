@@ -32,5 +32,6 @@
       "name": "snipe-it.ts",
       "exclude": ["**/node_modules/**"],
       "mode": "file",
+      "excludeNotExported": true
   }
 }
