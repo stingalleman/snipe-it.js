@@ -10,7 +10,7 @@ npm install snipe-it.ts
 
 ## Example
 
-Make sure to fill in the information needed. (SNIPE_URL and API_TOKEN)
+Make sure to fill in the information needed. (`SNIPE_URL` and `API_TOKEN`)
 
 ```js
 const { Snipe } = require("snipe-it.ts");
