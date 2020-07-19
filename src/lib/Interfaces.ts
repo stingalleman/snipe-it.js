@@ -41,3 +41,18 @@ export interface IHardware {
 	custom_fields?: string[],
 	available_actions?: any
 }
+
+
+export interface HardwareOptions {
+	limit?: number,
+	offset?: number,
+	search?: string,
+	order_number?: string,
+	sort?: string,
+	model_id?: number,
+	category_id?: number,
+	company_id?: number,
+	location_id?: number,
+	status?: string,
+	status_id?: string
+}
