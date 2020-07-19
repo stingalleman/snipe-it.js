@@ -1,13 +1,15 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, IHardware, HardwareOptions, checkoutOptions } from "../Interfaces";
+import { Response, IHardware, HardwareOptions, checkoutOptions, HardwarePostOptions } from "../Interfaces";
 import { Hardware } from "./Hardware";
 
 // Error:
 //		const result = await res.json();
 //		if (await result.status == "error") throw(`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
 export class HardwareManager extends Manager {
+
+	// GET
 
 	/**
  	* Return list of assets
@@ -190,6 +192,8 @@ export class HardwareManager extends Manager {
 		return json.rows.map(hardware => new Hardware(hardware));
 	}
 
+	// DELETE
+
 	/**
 	 * Delete specific asset by ID
 	 * @param id Asset ID
@@ -208,5 +212,30 @@ export class HardwareManager extends Manager {
 		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		return `Asset ${id} deleted`;
+	}
+
+	// POST, PATCH, PUT
+
+	/**
+	 * Make new asset
+	 */
+	async new(options: HardwarePostOptions) {
+		const res = await fetch(getApiURL(this.snipeURL, "/hardware"), {
+			method: "POST",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(options)
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+		if (result.status == "success") {
+			return result.payload;
+		} else {
+			return result;
+		}
 	}
 }

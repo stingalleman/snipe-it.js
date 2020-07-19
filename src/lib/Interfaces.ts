@@ -1,5 +1,5 @@
 export interface Response<A> {
-	total?: number,
+	total: number,
 	messages: any,
 	rows: []
 }
@@ -42,6 +42,12 @@ export interface IHardware {
 	available_actions?: any
 }
 
+export interface HardwarePostOptions {
+	asset_tag: string,
+	status_id: number,
+	model_id: number,
+	name?: string
+}
 
 export interface HardwareOptions {
 	limit?: number,
