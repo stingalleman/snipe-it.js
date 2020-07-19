@@ -1,3 +1,8 @@
-export const getApiURL = (snipeURL: string, slug: string) => {
-	return `${snipeURL}/api/v1${slug}`;
+import { URLSearchParams } from "url";
+
+export const getApiURL = (snipeURL: string, slug: string, options?: any) => {
+	// Check for / at end
+	if (slug.charAt(slug.length - 1) == "/") throw("/ at end of API endpoint!");
+
+	return `${snipeURL}/api/v1${slug}?${new URLSearchParams(options).toString()}`;
 };

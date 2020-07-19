@@ -1,7 +1,7 @@
 {
-  "name": "snipe-it.ts",
-  "version": "0.1.0-alpha",
-  "description": "snipe-it.ts",
+  "name": "snipe-it.js",
+  "version": "1.0.0",
+  "description": "snipe-it.js",
   "main": "dist/index",
   "files": [
     "dist"
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stingalleman/snipe-it.ts.git"
+    "url": "git+https://github.com/stingalleman/snipe-it.js.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stingalleman/snipe-it.ts/issues"
+    "url": "https://github.com/stingalleman/snipe-it.js/issues"
   },
   "devDependencies": {
     "@types/node": "^13.9.1",
@@ -41,5 +41,5 @@
   "dependencies": {
     "node-fetch": "^2.6.0"
   },
-  "homepage": "https://github.com/stingalleman/snipe-it.ts#readme"
+  "homepage": "https://github.com/stingalleman/snipe-it.js#readme"
 }

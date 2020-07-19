@@ -5,7 +5,7 @@ const snipe = new Snipe("https://aucom.alfrinklive.nl", config.token);
 
 async function func() {
 	const data = await snipe.hardware.get({
-		limit: 121
+		limit: 5
 	});
 	console.log(data.length);
 }
