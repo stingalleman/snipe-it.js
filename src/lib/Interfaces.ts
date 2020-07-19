@@ -63,6 +63,25 @@ export interface HardwareOptions {
 	status_id?: string
 }
 
+export interface HardwareUpdateOptions {
+	asset_tag?: string,
+	notes?: string,
+	status_id?: number,
+	model_id?: number,
+	last_checkout?: Date,
+	assigned_to?: number,
+	company_id?: number,
+	serial?: string,
+	order_number?: string,
+	warranty_months?: number,
+	purchase_cost?: number,
+	purchase_date?: Date,
+	requestable?: boolean,
+	archived?: boolean,
+	rtd_location_id?: number,
+	name?: string
+}
+
 export interface checkoutOptions {
 	assigned_user?: number,
 	assigned_asset?: number,

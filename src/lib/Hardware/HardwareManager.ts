@@ -1,7 +1,7 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, IHardware, HardwareOptions, checkoutOptions, HardwarePostOptions } from "../Interfaces";
+import { Response, IHardware, HardwareOptions, checkoutOptions, HardwarePostOptions, HardwareUpdateOptions } from "../Interfaces";
 import { Hardware } from "./Hardware";
 
 // Error:
@@ -233,7 +233,33 @@ export class HardwareManager extends Manager {
 		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
 		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 		if (result.status == "success") {
-			return result.payload;
+			const json: IHardware = result.payload;
+			return new Hardware(json);
+		} else {
+			return result;
+		}
+	}
+
+	/**
+	 * Update an asset
+	 * @param options Options to pass to the API
+	 */
+	async update(id: number, options: HardwareUpdateOptions) {
+		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
+			method: "PATCH",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(options)
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+		if (result.status == "success") {
+			const json: IHardware = result.payload;
+			return new Hardware(json);
 		} else {
 			return result;
 		}
