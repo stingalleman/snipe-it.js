@@ -1,7 +1,7 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, IHardware, HardwareOptions } from "../Interfaces";
+import { Response, IHardware, HardwareOptions, checkoutOptions } from "../Interfaces";
 import { Hardware } from "./Hardware";
 
 // Error:
@@ -124,5 +124,89 @@ export class HardwareManager extends Manager {
 			throw (`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
 		}
 		return result;
+	}
+
+	/**
+	 * Checkout a asset
+	 * @param id Asset ID to checkin
+	 * @param options Options to pass to the API
+	 */
+	async checkout(id: number, options: checkoutOptions) {
+		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}/checkout`), {
+			method: "POST",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(options)
+		});
+		const result = await res.json();
+		if (await result.status == "error") {
+			if (await result.messages == "That asset is not available for checkout!") throw ("Asset already checked out");
+			throw (`Error on checkout:\n${JSON.stringify(result, null, " ")}`);
+		}
+		return result;
+	}
+
+
+	/**
+	 * Return a list of assets that are due for audit soon
+	 */
+	async getAuditDue() {
+		const res = await fetch(getApiURL(this.snipeURL, "/hardware/audit/due"), {
+			method: "GET",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+
+		const json: Response<IHardware> = result;
+		return json.rows.map(hardware => new Hardware(hardware));
+	}
+
+	/**
+	 * Return a list of assets that are overdue for audit
+	 */
+	async getOverdueAudit() {
+		const res = await fetch(getApiURL(this.snipeURL, "/hardware/audit/overdue"), {
+			method: "GET",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+
+		const json: Response<IHardware> = result;
+		return json.rows.map(hardware => new Hardware(hardware));
+	}
+
+	/**
+	 * Delete specific asset by ID
+	 * @param id Asset ID
+	 */
+	async delete(id: number) {
+		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
+			method: "DELETE",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+
+		return `Asset ${id} deleted`;
 	}
 }

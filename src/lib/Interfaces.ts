@@ -56,3 +56,14 @@ export interface HardwareOptions {
 	status?: string,
 	status_id?: string
 }
+
+export interface checkoutOptions {
+	assigned_user?: number,
+	assigned_asset?: number,
+	assigned_location?: number,
+	expected_checkin?: Date,
+	checkout_at?: Date,
+	name?: string,
+	note?: number,
+	checkout_to_type: "user" | "asset" | "location"
+}
