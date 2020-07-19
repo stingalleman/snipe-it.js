@@ -34,7 +34,6 @@ export class HardwareManager extends Manager {
 	 * @param id Asset ID
 	 */
 	async getID(id: number) {
-		if(!id) return "id required!";
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
 			method: "GET",
 			headers: {
@@ -54,7 +53,6 @@ export class HardwareManager extends Manager {
 	 * @param id Asset ID
 	 */
 	async getAssetTag(asset_tag: string) {
-		if(!asset_tag) return "asset_tag required!";
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/bytag/${asset_tag}`), {
 			method: "GET",
 			headers: {
@@ -74,7 +72,6 @@ export class HardwareManager extends Manager {
 	 * @param id Asset ID
 	 */
 	async getSerial(serial: string) {
-		if(!serial) return "serial required!";
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/byserial/${serial}`), {
 			method: "GET",
 			headers: {
@@ -97,7 +94,6 @@ export class HardwareManager extends Manager {
 	 * @param location Location ID
 	 */
 	async checkin(id: number, note?: string, location_id?: number) {
-		if(!id) return "id required!";
 		const data = {
 			note: note,
 			location_id: location_id
@@ -121,7 +117,6 @@ export class HardwareManager extends Manager {
 	 * @param options Options to pass to the API
 	 */
 	async checkout(id: number, options: checkoutOptions) {
-		if(!id) return "id required!";
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}/checkout`), {
 			method: "POST",
 			headers: {
@@ -179,7 +174,6 @@ export class HardwareManager extends Manager {
 	 * @param id Asset ID
 	 */
 	async delete(id: number) {
-		if(!id) return "id required!";
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
 			method: "DELETE",
 			headers: {
@@ -188,9 +182,8 @@ export class HardwareManager extends Manager {
 				"Content-Type": "application/json"
 			}
 		});
-		const result = await res.json();
 
-		return `Asset ${id} deleted`;
+		return await res.json();
 	}
 
 	// POST, PATCH, PUT
@@ -199,7 +192,7 @@ export class HardwareManager extends Manager {
 	 * Make new asset
 	 */
 	async new(options: HardwarePostOptions) {
-		if(!options.asset_tag || !options.model_id || !options.status_id) return "missing fields!";
+		// if(!options.asset_tag || !options.model_id || !options.status_id) return "missing fields!";
 		const res = await fetch(getApiURL(this.snipeURL, "/hardware"), {
 			method: "POST",
 			headers: {
@@ -223,7 +216,6 @@ export class HardwareManager extends Manager {
 	 * @param options Options to pass to the API
 	 */
 	async update(id: number, options: HardwareUpdateOptions) {
-		if(!id) return "id required!";
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
 			method: "PATCH",
 			headers: {
@@ -243,8 +235,6 @@ export class HardwareManager extends Manager {
 	}
 
 	async audit(asset_tag: string, location_id?: number) {
-		if(!asset_tag) return "asset_tag required!";
-
 		const data = {
 			asset_tag: asset_tag,
 			location_id: location_id

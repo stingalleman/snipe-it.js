@@ -1,6 +1,6 @@
 {
   "name": "snipe-it.js",
-  "version": "v0.3.0",
+  "version": "v1.0.0",
   "description": "snipe-it.js",
   "main": "dist/index",
   "files": [

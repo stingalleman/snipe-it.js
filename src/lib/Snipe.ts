@@ -5,7 +5,7 @@ export class Snipe {
 	hardware: HardwareManager;
 	categories: CategoriesManager;
 
-	constructor(private snipeURL: string, private accessToken: string) {
+	constructor(snipeURL: string, accessToken: string) {
 		this.hardware = new HardwareManager(snipeURL, accessToken);
 		this.categories = new CategoriesManager(snipeURL, accessToken);
 	}
