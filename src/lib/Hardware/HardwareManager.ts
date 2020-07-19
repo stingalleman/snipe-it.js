@@ -33,7 +33,7 @@ export class HardwareManager extends Manager {
 
 
 	/**
-	 * Get specific asset
+	 * Get specific asset by Asset ID
 	 * @param id Asset ID
 	 */
 	async getID(id: number) {
@@ -46,11 +46,53 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		const json: IHardware = result;
 		return new Hardware(json);
+	}
+
+	/**
+	 * Get specific asset by Asset Tag
+	 * @param id Asset ID
+	 */
+	async getAssetTag(asset_tag: string) {
+		const res = await fetch(getApiURL(this.snipeURL, `/hardware/bytag/${asset_tag}`), {
+			method: "GET",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+
+		const json: IHardware = result;
+		return new Hardware(json);
+	}
+
+	/**
+	 * Get specific asset by Serial
+	 * @param id Asset ID
+	 */
+	async getSerial(serial: string) {
+		const res = await fetch(getApiURL(this.snipeURL, `/hardware/byserial/${serial}`), {
+			method: "GET",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}
+		});
+		const result = await res.json();
+		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
+		if (result.status == "error") throw (JSON.stringify(result, null, " "));
+
+		const json: Response<IHardware> = result;
+		return json.rows.map(hardware => new Hardware(hardware));
 	}
 
 
