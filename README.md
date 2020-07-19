@@ -1,11 +1,11 @@
-# snipe-it.ts
+# snipe-it.js
 
 > Typescript/Node.JS API wrapper for Snipe-IT
 
 ## Usage
 
 ```bash
-npm install snipe-it.ts
+npm install snipe-it.js
 ```
 
 ## Example
@@ -13,7 +13,7 @@ npm install snipe-it.ts
 Make sure to fill in the information needed. (`SNIPE_URL` and `API_TOKEN`)
 
 ```js
-const { Snipe } = require("snipe-it.ts");
+const { Snipe } = require("snipe-it.js");
 
 const snipe = new Snipe(SNIPE_URL, API_TOKEN);
 

@@ -29,7 +29,7 @@
   "typedocOptions": {
       "out": "./docs/",
       "readme": "./README.md",
-      "name": "snipe-it.ts",
+      "name": "snipe-it.js",
       "exclude": ["**/node_modules/**"],
       "mode": "file",
       "excludeNotExported": true
