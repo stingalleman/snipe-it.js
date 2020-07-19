@@ -67,3 +67,29 @@ export interface checkoutOptions {
 	note?: number,
 	checkout_to_type: "user" | "asset" | "location"
 }
+
+export interface ICategories {
+	id?: number,
+	name?: string,
+	image?: string,
+	category_type?: string,
+	eula?: boolean,
+	checkin_email?: boolean,
+	require_acceptance?: boolean,
+	assets_count?: number,
+	accessories_count?: number,
+	consumables_count?: number,
+	components_count?: number,
+	licenses_count?: number,
+	avaible_actions?: any,
+	created_at?: any,
+	updated_at?: any
+}
+
+export interface CategoriesOptions {
+	limit?: number,
+	offset?: number,
+	search?: string,
+	sort?: string,
+	order?: string
+}
