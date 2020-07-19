@@ -20,7 +20,7 @@ export class HardwareManager extends Manager {
 			headers: {
 				"Authorization": `Bearer ${this.apiToken}`,
 				"Accept": "application/json",
-				"Content-Type": "Content-Type"
+				"Content-Type": "application/json"
 			}
 		});
 		const result = await res.json();
@@ -42,7 +42,7 @@ export class HardwareManager extends Manager {
 			headers: {
 				"Authorization": `Bearer ${this.apiToken}`,
 				"Accept": "application/json",
-				"Content-Type": "Content-Type"
+				"Content-Type": "application/json"
 			}
 		});
 		const result = await res.json();
@@ -66,12 +66,13 @@ export class HardwareManager extends Manager {
 			location_id: location_id
 		};
 		const JSONdata = JSON.stringify(data);
+		console.log(JSONdata);
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}/checkin`), {
 			method: "POST",
 			headers: {
 				"Authorization": `Bearer ${this.apiToken}`,
 				"Accept": "application/json",
-				"Content-Type": "Content-Type"
+				"Content-Type": "application/json"
 			},
 			body: JSONdata
 		});
