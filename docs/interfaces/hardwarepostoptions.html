@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Response | snipe-it.js</title>
+	<title>HardwarePostOptions | snipe-it.js</title>
 	<meta name="description" content="Documentation for snipe-it.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,29 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="response.html">Response</a>
+					<a href="hardwarepostoptions.html">HardwarePostOptions</a>
 				</li>
 			</ul>
-			<h1>Interface Response&lt;A&gt;</h1>
+			<h1>Interface HardwarePostOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>A</h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Response</span>
+						<span class="target">HardwarePostOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -87,9 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="response.html#messages" class="tsd-kind-icon">messages</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="response.html#rows" class="tsd-kind-icon">rows</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="response.html#total" class="tsd-kind-icon">total</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hardwarepostoptions.html#asset_tag" class="tsd-kind-icon">asset_<wbr>tag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hardwarepostoptions.html#model_id" class="tsd-kind-icon">model_<wbr>id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hardwarepostoptions.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hardwarepostoptions.html#status_id" class="tsd-kind-icon">status_<wbr>id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,32 +91,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="messages" class="tsd-anchor"></a>
-					<h3>messages</h3>
-					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<a name="asset_tag" class="tsd-anchor"></a>
+					<h3>asset_<wbr>tag</h3>
+					<div class="tsd-signature tsd-kind-icon">asset_<wbr>tag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L3">lib/Interfaces.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L46">lib/Interfaces.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="rows" class="tsd-anchor"></a>
-					<h3>rows</h3>
-					<div class="tsd-signature tsd-kind-icon">rows<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span></div>
+					<a name="model_id" class="tsd-anchor"></a>
+					<h3>model_<wbr>id</h3>
+					<div class="tsd-signature tsd-kind-icon">model_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L4">lib/Interfaces.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L48">lib/Interfaces.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="total" class="tsd-anchor"></a>
-					<h3>total</h3>
-					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L2">lib/Interfaces.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L49">lib/Interfaces.ts:49</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="status_id" class="tsd-anchor"></a>
+					<h3>status_<wbr>id</h3>
+					<div class="tsd-signature tsd-kind-icon">status_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/49ff432/src/lib/Interfaces.ts#L47">lib/Interfaces.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,9 +166,27 @@
 					<li class=" tsd-kind-interface">
 						<a href="hardwareoptions.html" class="tsd-kind-icon">Hardware<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="hardwarepostoptions.html" class="tsd-kind-icon">Hardware<wbr>Post<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="hardwarepostoptions.html#asset_tag" class="tsd-kind-icon">asset_<wbr>tag</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="hardwarepostoptions.html#model_id" class="tsd-kind-icon">model_<wbr>id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="hardwarepostoptions.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="hardwarepostoptions.html#status_id" class="tsd-kind-icon">status_<wbr>id</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="hardwareupdateoptions.html" class="tsd-kind-icon">Hardware<wbr>Update<wbr>Options</a>
 					</li>
@@ -175,24 +196,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="ihardware.html" class="tsd-kind-icon">IHardware</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-has-type-parameter">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="response.html" class="tsd-kind-icon">Response</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="response.html#messages" class="tsd-kind-icon">messages</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="response.html#rows" class="tsd-kind-icon">rows</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="response.html#total" class="tsd-kind-icon">total</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="checkoutoptions.html" class="tsd-kind-icon">checkout<wbr>Options</a>
 					</li>

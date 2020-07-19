@@ -65,17 +65,15 @@
 				<a href="#snipe-itjs" id="snipe-itjs" style="color: inherit; text-decoration: none;">
 					<h1>snipe-it.js</h1>
 				</a>
+				<p><img src="https://img.shields.io/npm/v/snipe-it.js" alt="npm"> <img src="https://img.shields.io/github/license/stingalleman/snipe-it.js" alt="GitHub"> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=9D298ENTTLRBJ&amp;source=url"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a></p>
 				<blockquote>
 					<p>Typescript/Node.JS API wrapper for Snipe-IT</p>
 				</blockquote>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
 				</a>
 				<pre><code class="language-bash">npm install snipe-it.js</code></pre>
-				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-					<h2>Example</h2>
-				</a>
-				<p>Make sure to fill in the information needed. (<code>SNIPE_URL</code> and <code>API_TOKEN</code>)</p>
+				<p>Make sure to replace <code>SNIPE_URL</code> and <code>API_TOKEN</code> in this example</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Snipe } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;snipe-it.js&quot;</span>);
 
 <span class="hljs-keyword">const</span> snipe = <span class="hljs-keyword">new</span> Snipe(SNIPE_URL, API_TOKEN);
@@ -88,6 +86,7 @@
 }
 
 func();</code></pre>
+				<p>Documentation is located <a href="https://stingalleman.github.io/snipe-it.js/">here</a></p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -101,6 +100,12 @@ func();</code></pre>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
+						<a href="classes/categories.html" class="tsd-kind-icon">Categories</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/categoriesmanager.html" class="tsd-kind-icon">Categories<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/hardware.html" class="tsd-kind-icon">Hardware</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -113,13 +118,28 @@ func();</code></pre>
 						<a href="classes/snipe.html" class="tsd-kind-icon">Snipe</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/categoriesoptions.html" class="tsd-kind-icon">Categories<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/hardwareoptions.html" class="tsd-kind-icon">Hardware<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/hardwarepostoptions.html" class="tsd-kind-icon">Hardware<wbr>Post<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/hardwareupdateoptions.html" class="tsd-kind-icon">Hardware<wbr>Update<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/icategories.html" class="tsd-kind-icon">ICategories</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ihardware.html" class="tsd-kind-icon">IHardware</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="interfaces/response.html" class="tsd-kind-icon">Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/checkoutoptions.html" class="tsd-kind-icon">checkout<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#getapiurl" class="tsd-kind-icon">get<wbr>ApiURL</a>
@@ -144,9 +164,6 @@ func();</code></pre>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 			</ul>
 		</div>
 	</div>
