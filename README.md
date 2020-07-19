@@ -27,4 +27,4 @@ async function func() {
 func();
 ```
 
-Documentation is located [here](stingalleman.github.io/snipe-it.js/)
+Documentation is located [here](https://stingalleman.github.io/snipe-it.js/)
