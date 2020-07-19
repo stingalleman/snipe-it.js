@@ -1,6 +1,6 @@
 {
   "name": "snipe-it.js",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "description": "snipe-it.js",
   "main": "dist/index",
   "files": [
@@ -19,9 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/stingalleman/snipe-it.js.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "snipe-it", "snipe-it api", "api", "api wrapper", "api library", "inventory", "inventory management"
+  ],
+  "author": "Sting Alleman",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/stingalleman/snipe-it.js/issues"
   },

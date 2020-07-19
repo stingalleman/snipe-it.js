@@ -1,5 +1,5 @@
 export interface Response<A> {
-	total?: number,
+	total: number,
 	messages: any,
 	rows: []
 }
@@ -42,6 +42,12 @@ export interface IHardware {
 	available_actions?: any
 }
 
+export interface HardwarePostOptions {
+	asset_tag: string,
+	status_id: number,
+	model_id: number,
+	name?: string
+}
 
 export interface HardwareOptions {
 	limit?: number,
@@ -57,6 +63,25 @@ export interface HardwareOptions {
 	status_id?: string
 }
 
+export interface HardwareUpdateOptions {
+	asset_tag?: string,
+	notes?: string,
+	status_id?: number,
+	model_id?: number,
+	last_checkout?: Date,
+	assigned_to?: number,
+	company_id?: number,
+	serial?: string,
+	order_number?: string,
+	warranty_months?: number,
+	purchase_cost?: number,
+	purchase_date?: Date,
+	requestable?: boolean,
+	archived?: boolean,
+	rtd_location_id?: number,
+	name?: string
+}
+
 export interface checkoutOptions {
 	assigned_user?: number,
 	assigned_asset?: number,
@@ -66,4 +91,30 @@ export interface checkoutOptions {
 	name?: string,
 	note?: number,
 	checkout_to_type: "user" | "asset" | "location"
+}
+
+export interface ICategories {
+	id?: number,
+	name?: string,
+	image?: string,
+	category_type?: string,
+	eula?: boolean,
+	checkin_email?: boolean,
+	require_acceptance?: boolean,
+	assets_count?: number,
+	accessories_count?: number,
+	consumables_count?: number,
+	components_count?: number,
+	licenses_count?: number,
+	avaible_actions?: any,
+	created_at?: any,
+	updated_at?: any
+}
+
+export interface CategoriesOptions {
+	limit?: number,
+	offset?: number,
+	search?: string,
+	sort?: string,
+	order?: string
 }

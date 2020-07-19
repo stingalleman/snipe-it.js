@@ -1,13 +1,12 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, IHardware, HardwareOptions, checkoutOptions } from "../Interfaces";
+import { Response, IHardware, HardwareOptions, checkoutOptions, HardwarePostOptions, HardwareUpdateOptions } from "../Interfaces";
 import { Hardware } from "./Hardware";
 
-// Error:
-//		const result = await res.json();
-//		if (await result.status == "error") throw(`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
 export class HardwareManager extends Manager {
+
+	// GET
 
 	/**
  	* Return list of assets
@@ -24,8 +23,6 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (await result.status == "error") throw (JSON.stringify(result, null, " "));
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
@@ -46,8 +43,6 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		const json: IHardware = result;
 		return new Hardware(json);
@@ -67,8 +62,6 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		const json: IHardware = result;
 		return new Hardware(json);
@@ -88,8 +81,6 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
@@ -107,8 +98,6 @@ export class HardwareManager extends Manager {
 			note: note,
 			location_id: location_id
 		};
-		const JSONdata = JSON.stringify(data);
-		console.log(JSONdata);
 		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}/checkin`), {
 			method: "POST",
 			headers: {
@@ -116,13 +105,9 @@ export class HardwareManager extends Manager {
 				"Accept": "application/json",
 				"Content-Type": "application/json"
 			},
-			body: JSONdata
+			body: JSON.stringify(data)
 		});
 		const result = await res.json();
-		if (await result.status == "error") {
-			if (await result.messages == "That asset is already checked in.") throw ("Asset already checked in");
-			throw (`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
-		}
 		return result;
 	}
 
@@ -142,10 +127,6 @@ export class HardwareManager extends Manager {
 			body: JSON.stringify(options)
 		});
 		const result = await res.json();
-		if (await result.status == "error") {
-			if (await result.messages == "That asset is not available for checkout!") throw ("Asset already checked out");
-			throw (`Error on checkout:\n${JSON.stringify(result, null, " ")}`);
-		}
 		return result;
 	}
 
@@ -163,8 +144,6 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
@@ -183,12 +162,12 @@ export class HardwareManager extends Manager {
 			}
 		});
 		const result = await res.json();
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
 		const json: Response<IHardware> = result;
 		return json.rows.map(hardware => new Hardware(hardware));
 	}
+
+	// DELETE
 
 	/**
 	 * Delete specific asset by ID
@@ -203,10 +182,73 @@ export class HardwareManager extends Manager {
 				"Content-Type": "application/json"
 			}
 		});
-		const result = await res.json();
-		if (res.status !== 200) throw (JSON.stringify(result, null, " "));
-		if (result.status == "error") throw (JSON.stringify(result, null, " "));
 
-		return `Asset ${id} deleted`;
+		return await res.json();
+	}
+
+	// POST, PATCH, PUT
+
+	/**
+	 * Make new asset
+	 */
+	async new(options: HardwarePostOptions) {
+		// if(!options.asset_tag || !options.model_id || !options.status_id) return "missing fields!";
+		const res = await fetch(getApiURL(this.snipeURL, "/hardware"), {
+			method: "POST",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(options)
+		});
+		const result = await res.json();
+		if (result.status == "success") {
+			const json: IHardware = result.payload;
+			return new Hardware(json);
+		} else {
+			return result;
+		}
+	}
+
+	/**
+	 * Update an asset
+	 * @param options Options to pass to the API
+	 */
+	async update(id: number, options: HardwareUpdateOptions) {
+		const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
+			method: "PATCH",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(options)
+		});
+		const result = await res.json();
+		if (result.status == "success") {
+			const json: IHardware = result.payload;
+			return new Hardware(json);
+		} else {
+			return result;
+		}
+	}
+
+	async audit(asset_tag: string, location_id?: number) {
+		const data = {
+			asset_tag: asset_tag,
+			location_id: location_id
+		};
+		const res = await fetch(getApiURL(this.snipeURL, "/hardware/audit"), {
+			method: "POST",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+		const result = await res.json();
+		return result;
 	}
 }
