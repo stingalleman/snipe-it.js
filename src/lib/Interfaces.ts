@@ -137,10 +137,17 @@ export interface IStatusLabel {
 	available_actions?: any
 }
 
-export interface StatusLabelOptions {
+export interface StatusLabelGetOptions {
 	limit?: number,
 	offset?: number,
 	search?: string,
 	sort?: string,
 	order?: string
+}
+
+export interface StatusLabelOptions {
+	name: string,
+	deployable: boolean,
+	pending: boolean,
+	archived: boolean
 }
