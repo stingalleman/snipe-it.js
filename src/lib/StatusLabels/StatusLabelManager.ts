@@ -5,7 +5,7 @@ import { Response, IStatusLabel, StatusLabelGetOptions, StatusLabelOptions } fro
 import { StatusLabel } from "./StatusLabel";
 
 import { IHardware } from "../Interfaces";
-import { Hardware } from "../Hardware/Hardware"
+import { Hardware } from "../Hardware/Hardware";
 
 export class StatusLabelManager extends Manager {
 
