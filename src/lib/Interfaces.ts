@@ -12,7 +12,12 @@ export interface IHardware {
 	model?: any,
 	model_number?: any,
 	eol?: any,
-	status_label?: any,
+	status_label?: {
+		id?: number,
+		name?: string,
+		status_type?: string,
+		status_meta?: string
+	},
 	category?: any,
 	manufacturer?: any,
 	supplier?: any,
@@ -117,4 +122,32 @@ export interface CategoriesOptions {
 	search?: string,
 	sort?: string,
 	order?: string
+}
+
+export interface IStatusLabel {
+	id?: number,
+	name?: string,
+	type?: string,
+	color?: string,
+	show_in_nav?: boolean,
+	assets_count?: number,
+	notes?: string,
+	created_at?: any,
+	updated_at?: any,
+	available_actions?: any
+}
+
+export interface StatusLabelGetOptions {
+	limit?: number,
+	offset?: number,
+	search?: string,
+	sort?: string,
+	order?: string
+}
+
+export interface StatusLabelOptions {
+	name: string,
+	deployable: boolean,
+	pending: boolean,
+	archived: boolean
 }
