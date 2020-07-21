@@ -9,6 +9,10 @@ import { Hardware } from "../Hardware/Hardware";
 
 export class StatusLabelManager extends Manager {
 
+	/**
+	 * Get status labels
+	 * @param options Options to pass to the API
+	 */
 	async get(options: StatusLabelGetOptions) {
 		options = Object.assign({ limit: 50 }, options || {});
 
@@ -25,6 +29,10 @@ export class StatusLabelManager extends Manager {
 		return json.rows.map(statuslabel => new StatusLabel(statuslabel));
 	}
 
+	/**
+	 * Fetch specific status label
+	 * @param id ID of status label to fetch
+	 */
 	async getID(id: number) {
 		const res = await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}`), {
 			method: "GET",
@@ -39,6 +47,11 @@ export class StatusLabelManager extends Manager {
 		return new StatusLabel(json);
 	}
 
+	/**
+	 * Make new statuslabel
+	 * @param name Name of status label
+	 * @param type Type of status label: deployable, pending or archived.
+	 */
 	async new(name: string, type?: "deloyable" | "pending" | "archived") {
 		const body = {
 			name: name,
@@ -57,6 +70,11 @@ export class StatusLabelManager extends Manager {
 		return result;
 	}
 
+	/**
+	 * Edit a status label
+	 * @param id ID of status label to update
+	 * @param options Options to pass to the API
+	 */
 	async update(id: number, options: StatusLabelOptions) {
 		const body = {
 			id: id,
@@ -80,6 +98,10 @@ export class StatusLabelManager extends Manager {
 		return result;
 	}
 
+	/**
+	 * Delete a status label
+	 * @param id ID of status label to delete
+	 */
 	async delete(id: number) {
 		const res = await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}`), {
 			method: "DELETE",
@@ -94,6 +116,10 @@ export class StatusLabelManager extends Manager {
 		return result;
 	}
 
+	/**
+	 * View assets with a specific status label
+	 * @param id ID of status label to fetch
+	 */
 	async getAssets(id: number) {
 		const res = await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}/assetlist`), {
 			method: "GET",
