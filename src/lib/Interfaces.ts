@@ -124,6 +124,14 @@ export interface CategoriesOptions {
 	order?: string
 }
 
+export interface NewCategoriesOptions {
+	name: string,
+	category_type: "asset" | "accessory" | "consumable" | "component",
+	use_default_eula?: boolean,
+	require_acceptance?: boolean,
+	checkin_email?: boolean
+}
+
 export interface IStatusLabel {
 	id?: number,
 	name?: string,
