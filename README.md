@@ -1,6 +1,6 @@
 # snipe-it.js
 
-![npm](https://img.shields.io/npm/v/snipe-it.js) ![GitHub](https://img.shields.io/github/license/stingalleman/snipe-it.js) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9D298ENTTLRBJ&source=url)
+[![npm](https://img.shields.io/npm/v/snipe-it.js)](https://npmjs.com/package/snipe-it.js) [![GitHub](https://img.shields.io/github/license/stingalleman/snipe-it.js)](LICENSE.md) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9D298ENTTLRBJ&source=url)
 
 > Typescript/Node.JS API wrapper for Snipe-IT
 
