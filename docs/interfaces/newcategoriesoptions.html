@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StatusLabelGetOptions | snipe-it.js</title>
+	<title>NewCategoriesOptions | snipe-it.js</title>
 	<meta name="description" content="Documentation for snipe-it.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="statuslabelgetoptions.html">StatusLabelGetOptions</a>
+					<a href="newcategoriesoptions.html">NewCategoriesOptions</a>
 				</li>
 			</ul>
-			<h1>Interface StatusLabelGetOptions</h1>
+			<h1>Interface NewCategoriesOptions</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">StatusLabelGetOptions</span>
+						<span class="target">NewCategoriesOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -79,11 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="statuslabelgetoptions.html#limit" class="tsd-kind-icon">limit</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="statuslabelgetoptions.html#offset" class="tsd-kind-icon">offset</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="statuslabelgetoptions.html#order" class="tsd-kind-icon">order</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="statuslabelgetoptions.html#search" class="tsd-kind-icon">search</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="statuslabelgetoptions.html#sort" class="tsd-kind-icon">sort</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="newcategoriesoptions.html#category_type" class="tsd-kind-icon">category_<wbr>type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="newcategoriesoptions.html#checkin_email" class="tsd-kind-icon">checkin_<wbr>email</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="newcategoriesoptions.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="newcategoriesoptions.html#require_acceptance" class="tsd-kind-icon">require_<wbr>acceptance</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="newcategoriesoptions.html#use_default_eula" class="tsd-kind-icon">use_<wbr>default_<wbr>eula</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,52 +92,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="limit" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> limit</h3>
-					<div class="tsd-signature tsd-kind-icon">limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="category_type" class="tsd-anchor"></a>
+					<h3>category_<wbr>type</h3>
+					<div class="tsd-signature tsd-kind-icon">category_<wbr>type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"asset"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"accessory"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"consumable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"component"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L149">lib/Interfaces.ts:149</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L129">lib/Interfaces.ts:129</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="offset" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> offset</h3>
-					<div class="tsd-signature tsd-kind-icon">offset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="checkin_email" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> checkin_<wbr>email</h3>
+					<div class="tsd-signature tsd-kind-icon">checkin_<wbr>email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L150">lib/Interfaces.ts:150</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L132">lib/Interfaces.ts:132</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="order" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> order</h3>
-					<div class="tsd-signature tsd-kind-icon">order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L153">lib/Interfaces.ts:153</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L128">lib/Interfaces.ts:128</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="search" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> search</h3>
-					<div class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="require_acceptance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> require_<wbr>acceptance</h3>
+					<div class="tsd-signature tsd-kind-icon">require_<wbr>acceptance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L151">lib/Interfaces.ts:151</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L131">lib/Interfaces.ts:131</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="sort" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sort</h3>
-					<div class="tsd-signature tsd-kind-icon">sort<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="use_default_eula" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> use_<wbr>default_<wbr>eula</h3>
+					<div class="tsd-signature tsd-kind-icon">use_<wbr>default_<wbr>eula<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L152">lib/Interfaces.ts:152</a></li>
+							<li>Defined in <a href="https://github.com/stingalleman/snipe-it.js/blob/bd7d881/src/lib/Interfaces.ts#L130">lib/Interfaces.ts:130</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,36 +198,36 @@
 					<li class=" tsd-kind-interface">
 						<a href="istatuslabel.html" class="tsd-kind-icon">IStatus<wbr>Label</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="newcategoriesoptions.html" class="tsd-kind-icon">New<wbr>Categories<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="response.html" class="tsd-kind-icon">Response</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="statuslabelgetoptions.html" class="tsd-kind-icon">Status<wbr>Label<wbr>Get<wbr>Options</a>
+						<a href="newcategoriesoptions.html" class="tsd-kind-icon">New<wbr>Categories<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="statuslabelgetoptions.html#limit" class="tsd-kind-icon">limit</a>
+								<a href="newcategoriesoptions.html#category_type" class="tsd-kind-icon">category_<wbr>type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="statuslabelgetoptions.html#offset" class="tsd-kind-icon">offset</a>
+								<a href="newcategoriesoptions.html#checkin_email" class="tsd-kind-icon">checkin_<wbr>email</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="statuslabelgetoptions.html#order" class="tsd-kind-icon">order</a>
+								<a href="newcategoriesoptions.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="statuslabelgetoptions.html#search" class="tsd-kind-icon">search</a>
+								<a href="newcategoriesoptions.html#require_acceptance" class="tsd-kind-icon">require_<wbr>acceptance</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="statuslabelgetoptions.html#sort" class="tsd-kind-icon">sort</a>
+								<a href="newcategoriesoptions.html#use_default_eula" class="tsd-kind-icon">use_<wbr>default_<wbr>eula</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="response.html" class="tsd-kind-icon">Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="statuslabelgetoptions.html" class="tsd-kind-icon">Status<wbr>Label<wbr>Get<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="statuslabeloptions.html" class="tsd-kind-icon">Status<wbr>Label<wbr>Options</a>
 					</li>
