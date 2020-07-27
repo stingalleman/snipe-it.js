@@ -234,6 +234,11 @@ export class HardwareManager extends Manager {
 		}
 	}
 
+	/**
+	 * Mark an asset as audited
+	 * @param asset_tag Asset tag of asset to audit
+	 * @param location_id ID of location
+	 */
 	async audit(asset_tag: string, location_id?: number) {
 		const data = {
 			asset_tag: asset_tag,

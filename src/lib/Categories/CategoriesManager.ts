@@ -1,12 +1,9 @@
 import { Manager } from "../Manager";
 import fetch from "node-fetch";
 import { getApiURL } from "../Util";
-import { Response, ICategories, CategoriesOptions } from "../Interfaces";
+import { Response, ICategories, CategoriesOptions, NewCategoriesOptions } from "../Interfaces";
 import { Categories } from "./Categories";
 
-// Error:
-//		const result = await res.json();
-//		if (await result.status == "error") throw(`Error on checkin:\n${JSON.stringify(result, null, " ")}`);
 export class CategoriesManager extends Manager {
 
 	/**
@@ -50,5 +47,20 @@ export class CategoriesManager extends Manager {
 
 		const json: ICategories = result;
 		return new Categories(json);
+	}
+
+	async new(options: NewCategoriesOptions) {
+		const res = await fetch(getApiURL(this.snipeURL, "/categories"), {
+			method: "POST",
+			headers: {
+				"Authorization": `Bearer ${this.apiToken}`,
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(options)
+		});
+		const result = await res.json();
+
+		return result;
 	}
 }
