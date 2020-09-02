@@ -145,6 +145,28 @@ export interface IStatusLabel {
 	available_actions?: any
 }
 
+export interface ILocation {
+	id?: number,
+	name?: string,
+	image?: string,
+	address?: string,
+	address2?: string,
+	city?: string,
+	state?: string,
+	country?: string,
+	zip?: string,
+	assigned_assets_count?: number,
+	assets_count?: number,
+	users_count?: number,
+	currency?: any,
+	created_at?: any,
+	updated_at?: any,
+	parent?: any,
+	manager?: any,
+	children?: any,
+	available_actions?: any
+}
+
 export interface StatusLabelGetOptions {
 	limit?: number,
 	offset?: number,
@@ -158,4 +180,12 @@ export interface StatusLabelOptions {
 	deployable: boolean,
 	pending: boolean,
 	archived: boolean
+}
+
+export interface LocationOptions {
+	limit?: number,
+	offset?: number,
+	search?: string,
+	sort?: string,
+	order?: string
 }
