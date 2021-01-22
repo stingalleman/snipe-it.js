@@ -8,11 +8,13 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn compile",
-    "lint": "eslint --fix --ext ts src",
-    "test": "mocha",
     "compile": "tsc -p .",
-    "watch": "tsc -p . -w",
+    "lint": "eslint ./src --ext ts",
+    "lint:fix": "eslint --fix ./src --ext ts",
+    "lint:tsc": "tsc --noEmit -p .",
+    "lint:tsc:watch": "tsc --noEmit -w -p .",
+    "prettier": "prettier -c .",
+    "prettier:fix": "prettier -c -w .",
     "docs": "typedoc"
   },
   "repository": {

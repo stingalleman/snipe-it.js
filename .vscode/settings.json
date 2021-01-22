@@ -1,0 +1,21 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.validate": ["typescript"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
+  "npm.packageManager": "yarn",
+  "eslint.packageManager": "yarn",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.(ts|js)$",
+        "cmd": "sh ./tools/compile.sh"
+      }
+    ]
+  },
+  "files.eol": "\n"
+}
