@@ -9,10 +9,10 @@ export class LocationManager extends Manager {
    * Get locations.
    * @param options Options to pass to the API.
    */
-  async get(options?: LocationOptions) {
-    options = { limit: 50, ...(options || {}) };
+  async get(options?: LocationOptions): Promise<Locations[]> {
+    const parsedOptions = { limit: 50, ...(options || {}) };
 
-    const res = await fetch(getApiURL(this.snipeURL, '/locations', options), {
+    const res = await fetch(getApiURL(this.snipeURL, '/locations', parsedOptions), {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${this.apiToken}`,

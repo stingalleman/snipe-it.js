@@ -17,10 +17,10 @@ export class StatusLabelManager extends Manager {
    * Get status labels.
    * @param options Options to pass to the API.
    */
-  async get(options: StatusLabelGetOptions) {
-    options = { limit: 50, ...(options || {}) };
+  async get(options: StatusLabelGetOptions): Promise<StatusLabel[]> {
+    const parsedOptions = { limit: 50, ...(options || {}) };
 
-    const res = await fetch(getApiURL(this.snipeURL, '/statuslabels', options), {
+    const res = await fetch(getApiURL(this.snipeURL, '/statuslabels', parsedOptions), {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${this.apiToken}`,
@@ -38,7 +38,7 @@ export class StatusLabelManager extends Manager {
    * Fetch specific status label.
    * @param id ID of status label to fetch.
    */
-  async getID(id: number) {
+  async getID(id: number): Promise<StatusLabel> {
     const res = await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}`), {
       method: 'GET',
       headers: {
@@ -58,7 +58,7 @@ export class StatusLabelManager extends Manager {
    * @param name Name of status label.
    * @param type Type of status label: deployable, pending or archived.
    */
-  async new(name: string, type?: 'deloyable' | 'pending' | 'archived') {
+  async new(name: string, type?: 'deloyable' | 'pending' | 'archived'): Promise<StatusLabel> {
     const body = {
       name,
       type
@@ -81,7 +81,7 @@ export class StatusLabelManager extends Manager {
    * @param id ID of status label to update.
    * @param options Options to pass to the API.
    */
-  async update(id: number, options: StatusLabelOptions) {
+  async update(id: number, options: StatusLabelOptions): Promise<StatusLabel> {
     const body = {
       id,
       name: options.name,
@@ -108,8 +108,8 @@ export class StatusLabelManager extends Manager {
    * Delete a status label.
    * @param id ID of status label to delete.
    */
-  async delete(id: number) {
-    const res = await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}`), {
+  async delete(id: number): Promise<void> {
+    await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}`), {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${this.apiToken}`,
@@ -117,16 +117,13 @@ export class StatusLabelManager extends Manager {
         'Content-Type': 'application/json'
       }
     });
-    const result = await res.json();
-
-    return result;
   }
 
   /**
    * View assets with a specific status label.
    * @param id ID of status label to fetch.
    */
-  async getAssets(id: number) {
+  async getAssets(id: number): Promise<Hardware[]> {
     const res = await fetch(getApiURL(this.snipeURL, `/statuslabels/${id}/assetlist`), {
       method: 'GET',
       headers: {

@@ -12,6 +12,8 @@ module.exports = {
     'prettier/unicorn'
   ],
   rules: {
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/camelcase': 'off',
     'no-console': 'off',
     '@typescript-eslint/no-explicit-any': 'off'
   }

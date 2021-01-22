@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface Response<A> {
   total: number;
   messages: any;
@@ -87,7 +88,7 @@ export interface HardwareUpdateOptions {
   name?: string;
 }
 
-export interface checkoutOptions {
+export interface CheckoutOptions {
   assigned_user?: number;
   assigned_asset?: number;
   assigned_location?: number;

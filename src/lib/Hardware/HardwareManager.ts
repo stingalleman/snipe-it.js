@@ -5,7 +5,7 @@ import {
   Response,
   IHardware,
   HardwareOptions,
-  checkoutOptions,
+  CheckoutOptions,
   HardwarePostOptions,
   HardwareUpdateOptions
 } from '../Interfaces';
@@ -18,9 +18,9 @@ export class HardwareManager extends Manager {
    * Return list of assets.
    * @param options Options - Options to pass to the API.
    */
-  async get(options?: HardwareOptions) {
-    options = { limit: 50, ...(options || {}) };
-    const res = await fetch(getApiURL(this.snipeURL, '/hardware', options), {
+  async get(options?: HardwareOptions): Promise<Hardware[]> {
+    const parsedOptions = { limit: 50, ...(options || {}) };
+    const res = await fetch(getApiURL(this.snipeURL, '/hardware', parsedOptions), {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${this.apiToken}`,
@@ -38,7 +38,7 @@ export class HardwareManager extends Manager {
    * Get specific asset by Asset ID.
    * @param id Asset ID.
    */
-  async getID(id: number) {
+  async getID(id: number): Promise<Hardware> {
     const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
       method: 'GET',
       headers: {
@@ -55,10 +55,9 @@ export class HardwareManager extends Manager {
 
   /**
    * Get specific asset by Asset Tag.
-   * @param id Asset ID.
-   * @param asset_tag
+   * @param asset_tag Asset tag.
    */
-  async getAssetTag(asset_tag: string) {
+  async getAssetTag(asset_tag: string): Promise<Hardware> {
     const res = await fetch(getApiURL(this.snipeURL, `/hardware/bytag/${asset_tag}`), {
       method: 'GET',
       headers: {
@@ -75,10 +74,9 @@ export class HardwareManager extends Manager {
 
   /**
    * Get specific asset by Serial.
-   * @param id Asset ID.
-   * @param serial
+   * @param serial Asset tag.
    */
-  async getSerial(serial: string) {
+  async getSerial(serial: string): Promise<Hardware[]> {
     const res = await fetch(getApiURL(this.snipeURL, `/hardware/byserial/${serial}`), {
       method: 'GET',
       headers: {
@@ -95,12 +93,11 @@ export class HardwareManager extends Manager {
 
   /**
    * Checkin a asset.
-   * @param id Asset ID to checkin.
+   * @param id Asset ID.
    * @param note Note.
-   * @param location Location ID.
-   * @param location_id
+   * @param location_id Location ID.
    */
-  async checkin(id: number, note?: string, location_id?: number) {
+  async checkin(id: number, note?: string, location_id?: number): Promise<Hardware> {
     const data = {
       note,
       location_id
@@ -123,7 +120,7 @@ export class HardwareManager extends Manager {
    * @param id Asset ID to checkin.
    * @param options Options to pass to the API.
    */
-  async checkout(id: number, options: checkoutOptions) {
+  async checkout(id: number, options: CheckoutOptions): Promise<Hardware> {
     const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}/checkout`), {
       method: 'POST',
       headers: {
@@ -140,7 +137,7 @@ export class HardwareManager extends Manager {
   /**
    * Return a list of assets that are due for audit soon.
    */
-  async getAuditDue() {
+  async getAuditDue(): Promise<Hardware[]> {
     const res = await fetch(getApiURL(this.snipeURL, '/hardware/audit/due'), {
       method: 'GET',
       headers: {
@@ -158,7 +155,7 @@ export class HardwareManager extends Manager {
   /**
    * Return a list of assets that are overdue for audit.
    */
-  async getOverdueAudit() {
+  async getOverdueAudit(): Promise<Hardware[]> {
     const res = await fetch(getApiURL(this.snipeURL, '/hardware/audit/overdue'), {
       method: 'GET',
       headers: {
@@ -179,8 +176,8 @@ export class HardwareManager extends Manager {
    * Delete specific asset by ID.
    * @param id Asset ID.
    */
-  async delete(id: number) {
-    const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
+  async delete(id: number): Promise<void> {
+    await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${this.apiToken}`,
@@ -188,8 +185,6 @@ export class HardwareManager extends Manager {
         'Content-Type': 'application/json'
       }
     });
-
-    return await res.json();
   }
 
   // POST, PATCH, PUT
@@ -198,7 +193,7 @@ export class HardwareManager extends Manager {
    * Make new asset.
    * @param options
    */
-  async new(options: HardwarePostOptions) {
+  async new(options: HardwarePostOptions): Promise<Hardware> {
     // if(!options.asset_tag || !options.model_id || !options.status_id) return "missing fields!";
     const res = await fetch(getApiURL(this.snipeURL, '/hardware'), {
       method: 'POST',
@@ -210,7 +205,7 @@ export class HardwareManager extends Manager {
       body: JSON.stringify(options)
     });
     const result = await res.json();
-    if (result.status == 'success') {
+    if (result.status === 'success') {
       const json: IHardware = result.payload;
       return new Hardware(json);
     }
@@ -222,7 +217,7 @@ export class HardwareManager extends Manager {
    * @param id
    * @param options Options to pass to the API.
    */
-  async update(id: number, options: HardwareUpdateOptions) {
+  async update(id: number, options: HardwareUpdateOptions): Promise<Hardware> {
     const res = await fetch(getApiURL(this.snipeURL, `/hardware/${id}`), {
       method: 'PATCH',
       headers: {
@@ -233,7 +228,7 @@ export class HardwareManager extends Manager {
       body: JSON.stringify(options)
     });
     const result = await res.json();
-    if (result.status == 'success') {
+    if (result.status === 'success') {
       const json: IHardware = result.payload;
       return new Hardware(json);
     }
@@ -245,7 +240,7 @@ export class HardwareManager extends Manager {
    * @param asset_tag Asset tag of asset to audit.
    * @param location_id ID of location.
    */
-  async audit(asset_tag: string, location_id?: number) {
+  async audit(asset_tag: string, location_id?: number): Promise<Hardware> {
     const data = {
       asset_tag,
       location_id
