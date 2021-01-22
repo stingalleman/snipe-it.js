@@ -15,7 +15,17 @@
     "noErrorTruncation": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "outDir": "dist/"
+    "outDir": "./dist",
+    "alwaysStrict": true,
+    "declaration": true,
+    "strict": true,
+    "incremental": true,
+    "noUnusedLocals": true,
+    "pretty": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "types": ["node"],
+    "rootDir": "src"
   },
   "include": ["src/", "tools/scripts/src"],
   "exclude": ["node_modules"]

@@ -1,11 +1,11 @@
 import { IHardware } from '../Interfaces';
 
 export class Hardware {
-  public id: number;
+  public id?: number;
 
   public name?: string;
 
-  public asset_tag: string;
+  public asset_tag?: string;
 
   public serial?: any;
 
