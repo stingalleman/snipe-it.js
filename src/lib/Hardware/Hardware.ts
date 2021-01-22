@@ -65,8 +65,6 @@ export class Hardware {
 
   public requests_counter?: number;
 
-  public user_can_checkout?: boolean;
-
   public custom_fields?: string[];
 
   public available_actions?: any;
@@ -104,7 +102,6 @@ export class Hardware {
     this.checkin_counter = hardware!.checkin_counter;
     this.checkout_counter = hardware!.checkout_counter;
     this.requests_counter = hardware!.requests_counter;
-    this.user_can_checkout = hardware!.user_can_checkout;
     this.custom_fields = hardware!.custom_fields;
     this.available_actions = hardware!.available_actions;
   }

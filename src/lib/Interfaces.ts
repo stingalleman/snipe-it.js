@@ -43,7 +43,6 @@ export interface IHardware {
   checkin_counter?: number;
   checkout_counter?: number;
   requests_counter?: number;
-  user_can_checkout?: boolean;
   custom_fields?: string[];
   available_actions?: any;
 }
