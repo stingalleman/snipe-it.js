@@ -12,6 +12,7 @@ module.exports = {
     'prettier/unicorn'
   ],
   rules: {
-    'no-console': 'off'
+    'no-console': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
   }
 };
