@@ -1,2 +1,2 @@
-export * from "./Categories";
-export * from "./CategoriesManager";
+export * from './Categories';
+export * from './CategoriesManager';

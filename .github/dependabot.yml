@@ -2,12 +2,12 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     assignees:
-      - "stingalleman"
-    target-branch: "dev"
+      - 'stingalleman'
+    target-branch: 'dev'
     labels:
-      - "npm"
+      - 'npm'

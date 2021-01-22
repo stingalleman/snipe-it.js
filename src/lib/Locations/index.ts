@@ -1,2 +1,2 @@
-export * from "./Locations";
-export * from "./LocationManager";
+export * from './Locations';
+export * from './LocationManager';

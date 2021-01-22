@@ -1,2 +1,2 @@
-export * from "./Hardware";
-export * from "./HardwareManager";
+export * from './Hardware';
+export * from './HardwareManager';

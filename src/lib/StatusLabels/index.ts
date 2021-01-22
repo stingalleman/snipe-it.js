@@ -1,2 +1,2 @@
-export * from "./StatusLabel";
-export * from "./StatusLabelManager";
+export * from './StatusLabel';
+export * from './StatusLabelManager';
