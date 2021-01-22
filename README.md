@@ -7,12 +7,12 @@
 ## Installation
 
 ```bash
-npm install snipe-it.js
+yarn install snipe-it.js
 ```
 
 Make sure to replace `SNIPE_URL` and `API_TOKEN` in this example
 
-```js
+```ts
 const { Snipe } = require("snipe-it.js");
 
 const snipe = new Snipe(SNIPE_URL, API_TOKEN);
