@@ -1,0 +1,22 @@
+name: Linter
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/setup-node@v1
+
+      - uses: actions/checkout@v2
+        name: Checkout repository
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: ESLint
+        run: yarn lint
+
+      - name: TSC Linter
+        run: yarn lint:tsc
