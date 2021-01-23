@@ -28,5 +28,13 @@
     "rootDir": "src"
   },
   "include": ["src/", "tools/scripts/src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "typedocOptions": {
+    "out": "./docs",
+    "readme": "./README.md",
+    "name": "snipe-it.js",
+    "exclude": ["**/node_modules/**"],
+    "mode": "file",
+    "excludeNotExported": true
+  }
 }
