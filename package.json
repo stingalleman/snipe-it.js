@@ -36,7 +36,7 @@
     "url": "https://github.com/stingalleman/snipe-it.js/issues"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^3.1.1"
   },
   "devDependencies": {
     "@tribecamp/eslint-config-base": "^1.1.2",
